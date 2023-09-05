@@ -1,7 +1,7 @@
-import VueRouter from "vue-router";
-import LoginView from "@/views/LoginView.vue";
-import IndexView from "@/views/IndexView.vue";
 import { useAuthStore } from "@/stores/auth.js";
+import VueRouter from "vue-router";
+import LoginView from "@/views/login-view/index.vue";
+import IndexView from "@/views/index-view/index.vue";
 
 const router = new VueRouter({
   mode: "history",
@@ -24,7 +24,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
 
-  if (to.meta.requiresAuth && !authStore.isAutheticated) {
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
     next({ name: "login" });
   } else {
     next();

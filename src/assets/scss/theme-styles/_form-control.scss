@@ -1,0 +1,10 @@
+.form-control {
+  border: none;
+
+  &::placeholder {
+    // TODO: Remove this when fixed via Bootstrap config
+    &:not(.form-control-sm) {
+      font-size: $h5-font-size !important;
+    }
+  }
+}
